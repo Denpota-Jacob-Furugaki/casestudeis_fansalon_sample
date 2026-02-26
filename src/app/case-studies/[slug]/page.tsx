@@ -51,12 +51,12 @@ export default async function CaseStudyPage({
       </header>
 
       {/* Hero Section */}
-      <section className="relative h-[320px] md:h-[400px] overflow-hidden">
+      <section className="relative h-[420px] md:h-[520px] overflow-hidden">
         <Image
           src={cs.heroImage}
           alt={cs.salonName}
           fill
-          className="object-cover"
+          className="object-cover object-top"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
@@ -191,6 +191,58 @@ export default async function CaseStudyPage({
                   </h4>
                   <p className="text-muted leading-relaxed">{point.detail}</p>
                 </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Interview Q&A Section */}
+        <section className="mb-16">
+          <h2 className="text-xs text-primary font-medium tracking-widest uppercase mb-2">
+            Interview
+          </h2>
+          <div className="flex items-center gap-3 mb-8">
+            <h3 className="text-2xl font-bold text-foreground">
+              オーナーインタビュー
+            </h3>
+            <span className="bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full">
+              {cs.interview.patternLabel}
+            </span>
+          </div>
+          <p className="text-muted mb-10">{cs.interview.patternDescription}</p>
+          <div className="space-y-8">
+            {cs.interview.items.map((qa, i) => (
+              <div key={i} className="relative">
+                {/* Question */}
+                <div className="flex gap-4 items-start mb-4">
+                  <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold">
+                    Q{i + 1}
+                  </div>
+                  <h4 className="font-bold text-foreground text-lg pt-1.5">
+                    {qa.question}
+                  </h4>
+                </div>
+                {/* Answer */}
+                <div className="flex gap-4 items-start ml-0 md:ml-14">
+                  <div className="hidden md:flex w-10 h-10 rounded-full overflow-hidden border-2 border-primary-light flex-shrink-0">
+                    <Image
+                      src={cs.avatarImage}
+                      alt={cs.ownerName}
+                      width={40}
+                      height={40}
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="bg-card-bg rounded-2xl p-6 flex-1 border border-border">
+                    <p className="text-foreground leading-relaxed whitespace-pre-wrap">
+                      {qa.answer}
+                    </p>
+                  </div>
+                </div>
+                {/* Divider */}
+                {i < cs.interview.items.length - 1 && (
+                  <div className="border-b border-border mt-8" />
+                )}
               </div>
             ))}
           </div>

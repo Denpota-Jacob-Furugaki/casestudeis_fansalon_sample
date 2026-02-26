@@ -2,13 +2,15 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #1a1a2e;
-  --primary: #4361ee;
-  --primary-light: #eef2ff;
-  --accent: #f72585;
+  --foreground: #1a1a1a;
+  --primary: #c8102e;
+  --primary-light: #fef2f2;
+  --primary-dark: #9b0d23;
+  --accent: #e63946;
   --muted: #6b7280;
   --border: #e5e7eb;
   --card-bg: #f9fafb;
+  --dark-bg: #1a1a1a;
 }
 
 @theme inline {
@@ -16,10 +18,12 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
   --color-accent: var(--accent);
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-card-bg: var(--card-bg);
+  --color-dark-bg: var(--dark-bg);
   --font-sans: var(--font-noto-sans);
 }
 
